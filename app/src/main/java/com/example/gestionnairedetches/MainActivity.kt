@@ -17,9 +17,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var adapter: TacheAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        super.onCreate(savedInstanceState)
+       
         setContentView(R.layout.activity_tache_list)
         taches= mutableListOf<Tache>()
         taches.add(Tache("Note 1", "Blablabla"))
@@ -27,7 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         taches.add(Tache("Mémo Bobette", "Future championne de la NBA"))
         taches.add(Tache("Pourquoi Kotlin ?", "Parce-que Java !"))
         adapter=TacheAdapter(taches, this)
-
+        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        super.onCreate(savedInstanceState)
         val fab: View = findViewById(R.id.create_tache_fab)
         fab.setOnClickListener {
             Log.i("messaqe","hiiii")
