@@ -12,7 +12,7 @@ class TacheAdapter(val taches: List<Tache>, val itemClickListener: MainActivity)
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView = itemView.findViewById(R.id.card_view) as CardView
-        val nomView = cardView.findViewById(R.id.nom) as TextView
+        val nomView = cardView.findViewById(R.id.constraint) as TextView
         val dateView = cardView.findViewById(R.id.date) as TextView
     }
 
