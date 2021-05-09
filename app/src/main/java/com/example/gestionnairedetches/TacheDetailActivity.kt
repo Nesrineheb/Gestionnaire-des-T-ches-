@@ -27,9 +27,7 @@ class TacheDetailActivity : AppCompatActivity() {
     lateinit var nomView: TextView
     lateinit var dateView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tache_detail)
 
@@ -37,7 +35,9 @@ class TacheDetailActivity : AppCompatActivity() {
         tacheIndex = intent.getIntExtra(EXTRA_Tache_INDEX, -1)
 
 
-
+val toolbar = findViewById(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
        nomView = findViewById(R.id.nom) as TextView
         dateView = findViewById(R.id.date) as TextView
         nomView.text = tache.nom
