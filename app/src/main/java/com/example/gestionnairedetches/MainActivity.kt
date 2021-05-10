@@ -10,6 +10,7 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -27,13 +28,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         adapter=TacheAdapter(taches, this)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+
+        //findViewById(R.id.create_tache_fab).setOnClickListener (this)
         super.onCreate(savedInstanceState)
+
         val fab: View = findViewById(R.id.create_tache_fab)
         fab.setOnClickListener {
-            Log.i("messaqe","hiiii")
            createNewTache()
 
         }
+
+
+
 
         val recyclerView = findViewById(R.id.taches_recycler_view) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -65,15 +71,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     private fun processEditTacheResult(data: Intent) {
         val tacheIndex = data.getIntExtra(TacheDetailActivity.EXTRA_Tache_INDEX, -1)
         val tache = data.getParcelableExtra<Tache>(TacheDetailActivity.EXTRA_Tache)
-
+        when(data.action) {
+            "ACTION_SAVE" -> {
+                val note = data.getParcelableExtra<Tache>(TacheDetailActivity.EXTRA_Tache)
+                saveTache(note, tacheIndex)
+            }
+            "ACTION_DELETE" -> deleteTache(tacheIndex)
+        }
         saveTache(tache,tacheIndex)
     }
 
-    private fun saveTache(tache: Tache, tacheIndex: Int) {
-        taches[tacheIndex] = tache
+
+    fun deleteTache(tacheIndex: Int) {
+        if (tacheIndex < 0) {
+            return
+        }
+
+
+        adapter.notifyDataSetChanged()
+
+
+    }
+
+     fun saveTache(tache: Tache, tacheIndex: Int) {
+         if (tacheIndex<0){
+             taches.add(0,tache)
+         }else{
+             taches[tacheIndex] = tache
+         }
+
         adapter.notifyDataSetChanged()
     }
 
