@@ -15,7 +15,7 @@ class ConfirmDeleteDialogueFragment: DialogFragment() {
     var  listener: ConfirmDeleteListener? =null
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder= AlertDialog.Builder(activity)
-
+                builder.setMessage("supprimer ?")
             .setPositiveButton("Oui !",
                 DialogInterface.OnClickListener { dialog, id -> listener?.onDialogPositiveClick() })
             .setNegativeButton("Non ...",

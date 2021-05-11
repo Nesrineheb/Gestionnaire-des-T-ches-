@@ -18,6 +18,8 @@ class TacheDetailActivity : AppCompatActivity() {
         val REQUEST_EDIT_Tache = 1
         val EXTRA_Tache = "tache"
         val EXTRA_Tache_INDEX = "tacheIndex"
+        val ACTION_DELETE_TACHE = "com.example.gestionnairedetches.actions.ACTION_DELETE_TACHE"
+        val ACTION_SAVE_TACHE= "com.example.gestionnairedetches.actions.ACTION_SAVE_TACHE"
     }
 
 
@@ -52,12 +54,13 @@ val toolbar = findViewById(R.id.toolbar) as Toolbar
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.i("meeeesage !!","meeeeage")
+
         when (item.itemId) {
             R.id.action_save ->{
                 saveTache()
                 return true  }
             R.id.action_delete ->{
+                Log.i("meeeesage debug","delete action")
                 showConfirmDeleteDialogue()
                 return true
             }
@@ -69,26 +72,26 @@ val toolbar = findViewById(R.id.toolbar) as Toolbar
         val confirmFragment = ConfirmDeleteDialogueFragment()
         confirmFragment.listener = object :ConfirmDeleteDialogueFragment.ConfirmDeleteListener {
             override fun onDialogPositiveClick() {
-
-            }
-            override fun onDialogNegativeClick() {
                 deleteTache()
             }
+            override fun onDialogNegativeClick() {
 
-        }}
+            } }
+        confirmFragment.show(supportFragmentManager, "delete confirm")
+    }
 
     fun saveTache() {
         tache.nom= nomView.text.toString()
         tache.date = dateView.text.toString()
 
-        intent = Intent("ACTION_SAVE")
+        intent = Intent(ACTION_SAVE_TACHE)
         intent.putExtra(EXTRA_Tache, tache as Parcelable)
         intent.putExtra(EXTRA_Tache_INDEX, tacheIndex)
         setResult(Activity.RESULT_OK, intent)
         finish()
     }
     fun deleteTache() {
-        intent = Intent("ACTION_DELETE")
+        intent = Intent(ACTION_DELETE_TACHE)
         intent.putExtra(EXTRA_Tache_INDEX, tacheIndex)
         setResult(Activity.RESULT_OK, intent)
         finish()

@@ -10,6 +10,7 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -76,13 +77,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val tacheIndex = data.getIntExtra(TacheDetailActivity.EXTRA_Tache_INDEX, -1)
         val tache = data.getParcelableExtra<Tache>(TacheDetailActivity.EXTRA_Tache)
         when(data.action) {
-            "ACTION_SAVE" -> {
+            TacheDetailActivity.ACTION_SAVE_TACHE-> {
+
                 val note = data.getParcelableExtra<Tache>(TacheDetailActivity.EXTRA_Tache)
                 saveTache(note, tacheIndex)
             }
-            "ACTION_DELETE" -> deleteTache(tacheIndex)
+            TacheDetailActivity.ACTION_DELETE_TACHE -> deleteTache(tacheIndex)
         }
-        saveTache(tache,tacheIndex)
+        
     }
 
 
@@ -90,8 +92,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (tacheIndex < 0) {
             return
         }
-
-
+       taches.removeAt(tacheIndex)
         adapter.notifyDataSetChanged()
 
 
