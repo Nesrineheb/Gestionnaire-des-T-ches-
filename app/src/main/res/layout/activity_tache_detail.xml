@@ -8,45 +8,54 @@
     tools:context=".TacheDetailActivity">
 
 
+    <TextView
+        android:id="@+id/date_view"
+        android:layout_width="87dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="116dp"
+        android:text="TextView"
+
+
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="152dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="@color/colorAccent"
+        android:backgroundTintMode="add"
+        android:text="selectionner date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <EditText
         android:id="@+id/nom"
         android:layout_width="340dp"
         android:layout_height="56dp"
+        android:layout_marginTop="168dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nom de la tache"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
-
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="340dp"
-        android:layout_height="56dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Date de la tache"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Cree Note"
         android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent" />
+        app:title="Cree Note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

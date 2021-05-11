@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
        
         setContentView(R.layout.activity_tache_list)
         taches= mutableListOf<Tache>()
-        taches.add(Tache("Note 1", "Blablabla"))
-        taches.add(Tache("Mémo Bob", "Grand joueur de basket"))
-        taches.add(Tache("Mémo Bobette", "Future championne de la NBA"))
-        taches.add(Tache("Pourquoi Kotlin ?", "Parce-que Java !"))
+        taches.add(Tache("Tache n°1", "14-mai-2021"))
+        taches.add(Tache("Tache n°2", "15-mai-2021"))
+        taches.add(Tache("Tache n°3", "25-mai-2021"))
+        taches.add(Tache("Tache n°4", "26-mai-2021"))
+        taches.add(Tache("Tache n°5", "27-mai-2021"))
         adapter=TacheAdapter(taches, this)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
@@ -84,7 +85,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             TacheDetailActivity.ACTION_DELETE_TACHE -> deleteTache(tacheIndex)
         }
-        
+
     }
 
 

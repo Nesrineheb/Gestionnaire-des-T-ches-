@@ -16,6 +16,7 @@ class TacheAdapter(val taches: List<Tache>, val itemClickListener: MainActivity 
         val nomView = cardView.findViewById(R.id.constraint) as TextView
         val dateView = cardView.findViewById(R.id.date) as TextView
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
