@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
        
         setContentView(R.layout.activity_tache_list)
         taches= mutableListOf<Tache>()
-        taches.add(Tache("Note 1", "Blablabla"))
-        taches.add(Tache("Mémo Bob", "Grand joueur de basket"))
-        taches.add(Tache("Mémo Bobette", "Future championne de la NBA"))
-        taches.add(Tache("Pourquoi Kotlin ?", "Parce-que Java !"))
+        taches.add(Tache("Tache 1", "20/03/2020"))
+        taches.add(Tache("Tache 2", "04/05/2021"))
+        taches.add(Tache("Tache 3", "09/09/2021"))
+        taches.add(Tache("Tache 4", "14/11/2021"))
         adapter=TacheAdapter(taches, this)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
