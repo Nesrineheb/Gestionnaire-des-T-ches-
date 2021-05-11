@@ -53,9 +53,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
 
-        app:title="Cree Note" />
+        app:title="Crée Tache" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

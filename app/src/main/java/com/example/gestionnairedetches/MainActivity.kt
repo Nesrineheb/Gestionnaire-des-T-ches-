@@ -22,11 +22,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
        
         setContentView(R.layout.activity_tache_list)
         taches= mutableListOf<Tache>()
+
         taches.add(Tache("Tache n°1", "14-mai-2021"))
         taches.add(Tache("Tache n°2", "15-mai-2021"))
         taches.add(Tache("Tache n°3", "25-mai-2021"))
         taches.add(Tache("Tache n°4", "26-mai-2021"))
         taches.add(Tache("Tache n°5", "27-mai-2021"))
+
         adapter=TacheAdapter(taches, this)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
